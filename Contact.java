@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * The {@link Contact} class represents the contact information
@@ -54,8 +51,7 @@ public class Contact {
         /* This first set of lines helps us see what happens when we use 
            the NameComparator class to compare two Contacts. */
         
-        /* [REMOVE THIS LINE TO TEST]
-        // create a few contacts
+
         Contact c1 = new Contact("Adam", "King 125B");
         Contact c2 = new Contact("Howard", "King 139C");
         Contact c3 = new Contact("Jackie", "King 139");
@@ -68,12 +64,11 @@ public class Contact {
         System.out.println("c1 compare c1: " + nameComparator.compare(c1, c1));
         System.out.println("c2 compare c1: " + nameComparator.compare(c2, c1));
         System.out.println(); // add a blank line of output
-        [REMOVE THIS LINE TO TEST] */
 
         /* The rest of this code investigates what happens when we use 
          * both comparators to help us sort data. */
         
-        /* [REMOVE THIS LINE TO TEST]
+
         // create some more Contacts
         Contact c4 = new Contact("Emily", "King 139A");
         Contact c5 = new Contact("Cynthia", "King 139B");
@@ -110,6 +105,5 @@ public class Contact {
         for (Contact contact : csOffices) {
             System.out.println(contact.getName() + " is in " + contact.getOffice());
         }
-        [REMOVE THIS LINE TO TEST] */
     }
 }

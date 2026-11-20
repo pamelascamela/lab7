@@ -1,0 +1,1 @@
+Prediction: I can already see that there will be an issue in compiling Contact.java. There is no Collections class or object or array but it references it twice.
