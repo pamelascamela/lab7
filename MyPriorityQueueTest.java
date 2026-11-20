@@ -28,4 +28,14 @@ public class MyPriorityQueueTest {
         List<Integer> expected = Arrays.asList(1, 2, 5, 8, 3, 13, 55, 34, 89, 144, 21);
         assertEquals(expected, actual);
     }
+
+    void testPeek() {
+        MyPriorityQueue<Integer> queue = new MyPriorityQueue<Integer>(Comparator.naturalOrder());
+        queue.offer(10);
+        queue.offer(20);
+        queue.offer(5);
+
+        assertEquals(Integer.valueOf(5), queue.peek());
+        
+    }
 }

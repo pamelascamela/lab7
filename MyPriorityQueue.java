@@ -66,7 +66,7 @@ public class MyPriorityQueue<T> extends AbstractQueue<T>{
     }
 
     public T peek(){
-        return null;
+        return heap.get(1);
     }
     
 }
