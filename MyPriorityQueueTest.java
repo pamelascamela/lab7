@@ -38,4 +38,5 @@ public class MyPriorityQueueTest {
         assertEquals(Integer.valueOf(5), queue.peek());
         
     }
+    
 }
