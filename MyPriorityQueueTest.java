@@ -10,7 +10,7 @@ import org.junit.Test;
 
 public class MyPriorityQueueTest {
     @Test
-    public void offerMaintainsMinHeapOrder(){
+    public void testOffer(){
         MyPriorityQueue<Integer> queue = new MyPriorityQueue<Integer>(Comparator.naturalOrder());
         int[] values = {2, 8, 13, 34, 21, 5, 55, 1, 89, 144, 3};
 
@@ -26,6 +26,40 @@ public class MyPriorityQueueTest {
         }
 
         List<Integer> expected = Arrays.asList(1, 2, 5, 8, 3, 13, 55, 34, 89, 144, 21);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testpoll(){
+        MyPriorityQueue<Integer> queue = new MyPriorityQueue<Integer>(Comparator.naturalOrder());
+        int[] values = {2, 8, 13, 34, 21, 5, 55, 1, 89, 144, 3};
+
+        for (int value : values){
+            queue.offer(value);
+        }
+
+        Iterator<Integer> iterator1 = queue.iterator();
+        iterator1.next();
+        List<Integer> actual1 = new ArrayList<Integer>();
+        while (iterator1.hasNext()){
+            actual1.add(iterator1.next());
+        }
+
+        List<Integer> expected1 = Arrays.asList(1, 2, 5, 8, 3, 13, 55, 34, 89, 144, 21);
+        assertEquals(expected1, actual1);
+
+        Integer removed = queue.poll();
+
+        Iterator<Integer> iterator = queue.iterator();
+        iterator.next();
+        List<Integer> actual = new ArrayList<Integer>();
+        while (iterator.hasNext()){
+            actual.add(iterator.next());
+        }
+
+        List<Integer> expected = Arrays.asList(2, 3, 5, 8, 21, 13, 55, 34, 89, 144);
+        assertEquals(expected, actual);
+        assertEquals(Integer.valueOf(1), removed);
         assertEquals(expected, actual);
     }
 

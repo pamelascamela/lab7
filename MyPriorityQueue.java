@@ -66,40 +66,87 @@ public class MyPriorityQueue<T> extends AbstractQueue<T>{
     }
 
     public T peek(){
+        if (heap.size() == 0){
+            return null;
+        }
         return heap.get(1);
     }
 
     private void percolateDown(int index){
+
         int leftChildIndex = leftChild(index);
         int rightChildIndex = rightChild(index);
-        if (heap.get(leftChildIndex) == null && heap.get(rightChildIndex) == null){
+        //if no children
+        if ((heap.size()-1) < leftChildIndex){
+            return;
+        }
+        // i
+        if ((heap.size()-1) < rightChildIndex){
             return;
         }
 
-        //left chiild is bigger than right child, right child is smaller and goes up
-        if (comparator.compare(heap.get(leftChildIndex), heap.get(rightChild(index))) > 0){
+       
+
+        //if only right child 
+        if(heap.get(leftChildIndex) == null && heap.get(rightChildIndex) != null){
+            if(comparator.compare(heap.get(index), heap.get(rightChild(index))) > 0){
             T rightItem = heap.get(rightChildIndex);
             T parentItem = heap.get(index);
             heap.set(index, rightItem);
             heap.set(rightChildIndex, parentItem);
-            percolateUp(rightChildIndex);
+            percolateDown(rightChildIndex);
         }
-        //left child going up here
-        if (comparator.compare(heap.get(leftChildIndex), heap.get(rightChild(index))) < 0){
+        return;
+        }
+
+        //if only left child
+        if(heap.get(leftChildIndex) != null && heap.get(rightChildIndex) == null){
+            if(comparator.compare(heap.get(index), heap.get(leftChild(index))) > 0){
             T leftItem = heap.get(leftChildIndex);
             T parentItem = heap.get(index);
             heap.set(index, leftItem);
             heap.set(leftChildIndex, parentItem);
-            percolateUp(leftChildIndex);
-        } 
+            percolateDown(leftChildIndex);
+            }
+            return;
+        }
+        
+
+        //if both children finds smaller child
+        int smaller = comparator.compare(heap.get(leftChild(index)), heap.get(rightChild(index)));
+        
+        //if both children same value or left child is smaller
+        if (smaller == 0 || smaller < 0){
+            //if parent smaller than left child
+            if(comparator.compare(heap.get(index), heap.get(leftChild(index))) > 0){
+            T leftItem = heap.get(leftChildIndex);
+            T parentItem = heap.get(index);
+            heap.set(index, leftItem);
+            heap.set(leftChildIndex, parentItem);
+            percolateDown(leftChildIndex);
+            }
+            return;
+        }
+        //else if the right child was smaller
+        else{
+            if(comparator.compare(heap.get(index), heap.get(rightChild(index))) > 0){
+            T rightItem = heap.get(rightChildIndex);
+            T parentItem = heap.get(index);
+            heap.set(index, rightItem);
+            heap.set(rightChildIndex, parentItem);
+            percolateDown(rightChildIndex);
+        }
+        return;
+    }
+        
     }
 
     public T poll(){
         T rootVal = heap.get(1);
-        heap.set(1, heap.get(heap.size() - 2));
-        heap.set(heap.size() - 2, null);
+        heap.set(1, heap.get(heap.size() - 1));
+        heap.remove(heap.size() - 1);
         percolateDown(1);
-        return heap.get(1);
+        return rootVal;
     }
     
 }
