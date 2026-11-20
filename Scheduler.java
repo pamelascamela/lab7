@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * The Scheduler class schedules {@link Task}s.
- * 
+ *
  * @author CS Professors
  */
 public class Scheduler {

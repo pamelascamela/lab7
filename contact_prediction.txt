@@ -1,1 +1,2 @@
-Prediction: I can already see that there will be an issue in compiling Contact.java. There is no Collections class or object or array but it references it twice.
+Prediction: I can already see that there will be an issue in compiling Contact.java. There are no imports for List or Arrays or Collectionns. I added them now because obviously we'll need them. 
+Now, i think that Contact.java will print a list of all of the professors and their offices in ascending order or office number. 
