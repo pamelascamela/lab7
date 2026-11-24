@@ -1,0 +1,13 @@
+Length: All jobs have been run. 18 deadlines were missed, by a total of 24827 milliseconds.  There were 77 priority inversions.
+Available: All jobs have been run. 44 deadlines were missed, by a total of 14029 milliseconds.  There were 78 priority inversions.
+Deadline: All jobs have been run. 41 deadlines were missed, by a total of 10332 milliseconds.  There were 81 priority inversions.
+Priority: All jobs have been run. 23 deadlines were missed, by a total of 33716 milliseconds.  There were 0 priority inversions.
+
+Which Comparator led to the fewest number of missed deadlines?
+    Length Comparator
+Which Comparator led to the fewest milliseconds of missed deadlines?
+    Availability Comparator
+Which Comparator led to the fewest priority inversions?
+    Priority Comparator
+What do the answers to your first three questions tell us about the strengths and weaknesses of the different scheduling algorithms (and Comparators)?
+    They all have varying strengths and weaknesses and should be used based on whatever the user needs accomplished
