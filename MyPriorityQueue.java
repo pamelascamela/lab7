@@ -80,27 +80,8 @@ public class MyPriorityQueue<T> extends AbstractQueue<T>{
         if ((heap.size()-1) < leftChildIndex){
             return;
         }
-        // i
-        if ((heap.size()-1) < rightChildIndex){
-            return;
-        }
-
-       
-
-        //if only right child 
-        if(heap.get(leftChildIndex) == null && heap.get(rightChildIndex) != null){
-            if(comparator.compare(heap.get(index), heap.get(rightChild(index))) > 0){
-            T rightItem = heap.get(rightChildIndex);
-            T parentItem = heap.get(index);
-            heap.set(index, rightItem);
-            heap.set(rightChildIndex, parentItem);
-            percolateDown(rightChildIndex);
-        }
-        return;
-        }
-
-        //if only left child
-        if(heap.get(leftChildIndex) != null && heap.get(rightChildIndex) == null){
+        // if only left Child
+        if((heap.size()-1) < rightChildIndex){
             if(comparator.compare(heap.get(index), heap.get(leftChild(index))) > 0){
             T leftItem = heap.get(leftChildIndex);
             T parentItem = heap.get(index);
@@ -109,10 +90,10 @@ public class MyPriorityQueue<T> extends AbstractQueue<T>{
             percolateDown(leftChildIndex);
             }
             return;
-        }
+            }
         
 
-        //if both children finds smaller child
+      //if both children finds smaller child
         int smaller = comparator.compare(heap.get(leftChild(index)), heap.get(rightChild(index)));
         
         //if both children same value or left child is smaller
